@@ -1,0 +1,37 @@
+{
+    "page_label": "job application",
+    "fields": [
+      {
+        "label": "name",
+        "placeholder": "Enter name",
+        "type": "text",
+        "value": "",
+        "field": "textfield",
+        "name": "name",
+        "_id": "1"
+      },
+      {
+        "label": "phonenumber",
+        "placeholder": "Enter phonenumber",
+        "type": "number",
+        "value": "",
+        "field": "textfield",
+        "name": "phonenumber",
+        "_id": "2"
+
+      },
+      {
+        "label": "Gender",
+        "placeholder": "Enter Gender",
+        "type": "radio",
+        "value": "",
+        "field": "radiofield",
+        "name": "gender",
+        "_id": "3",
+        "Allocation": [
+          { "id": 1, "label": "male", "type": "male" },
+          { "id": 2, "label": "female", "type": "female" }
+        ]
+      }
+    ]
+  }
