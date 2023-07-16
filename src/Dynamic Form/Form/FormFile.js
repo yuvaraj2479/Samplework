@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import InputBox from '../fields/InputBox';
 import RadioButton from '../fields/RadioButton';
 import jsondata from '../Json/JsonData.json'
+import SelectDropdown from '../fields/SelectDropdown';
+import Checkbox from '../fields/Checkbox';
 
 export default function FormFile() {
 
     const [formvalue, setFormvalue] = useState(jsondata.fields);
+
+    const [checkedbox,setCheckedbox]=useState([])
 
     const handleonchange = (e) => {
         const { name, value } = e.target;
@@ -19,14 +23,33 @@ export default function FormFile() {
         setFormvalue(arr);
     };
 
-
-
-    const handleRadio = (e, index, id) => {
-      
-        console.log(e.target.checked);
-     let arr=   formvalue.filter(v => {
+    const handleRadio = (e, index, id,) => {
+        let arr = formvalue.filter(v => {
             if (v._id == id) {
-                    v.value= v.Allocation[index].type
+                v.value = v.option[index].type
+            }
+            return v
+        })
+        setFormvalue(arr)
+    }
+
+    const handledropdown = (e) => {
+        const { name, value } = e.target;
+
+        let arr = formvalue.filter(v => {
+            if (v.name == name) {
+                v.value = value
+            }
+            return v
+        })
+        setFormvalue(arr)
+    }
+
+    const handlecheckbox = (e, data, index, id) => {
+
+        let arr = formvalue.filter(v => {
+            if (v._id == id) {
+            
             }
             return v
         })
@@ -34,7 +57,6 @@ export default function FormFile() {
     }
 
     console.log(formvalue);
-
 
     return (
         <div>
@@ -58,14 +80,35 @@ export default function FormFile() {
                                 key={v.name}
                                 label={v.label}
                                 type={v.type}
-                                data={v.Allocation}
+                                option={v.Allocation}
                                 name={v.name}
                                 value={v.value}
-                                // checked={}
                                 onChange={(e, index) => handleRadio(e, index, v._id,)}
                             />
                         );
                     // break;
+                    case "dropdownfield":
+                        return (
+                            <SelectDropdown
+                                label={v.label}
+                                options={v.option}
+                                name={v.name}
+                                value={v.value}
+                                onChange={(e) => handledropdown(e, index)}
+                            />
+                        );
+                    // break;
+                    case "checkboxfield":
+                        return (
+                            <Checkbox
+                                label={v.label}
+                                option={v.option}
+                                type={v.type}
+                                value={v.value}
+                                onChange={(e, data, index) => handlecheckbox(e, data, index, v._id)}
+                            />
+                        )
+
                     default:
                         break;
                 }

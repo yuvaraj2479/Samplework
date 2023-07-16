@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function RadioButton(props) {
-    return (
-        <div>
-            <label>
+export default function Checkbox(props) {
+  return (
+    <div>
+        <label>
                 {props.label} :
             </label>
             {
@@ -13,16 +13,15 @@ export default function RadioButton(props) {
                             <input
                                 type={props.type}
                                 value={props.value}
-                                onChange={(e)=>props.onChange(e,i)}
-                                placeholder={props.placeholder}
+                                onChange={(e)=>props.onChange(e,v,i)}
                                 checked={props.checked}
                                 name={props.name}
                             />
-                            <label>{v.label} </label>
+                            <label>{v.name} </label>
                         </>
                     )
                 })
             }
-        </div>
-    )
+    </div>
+  )
 }

@@ -11,16 +11,6 @@
         "_id": "1"
       },
       {
-        "label": "phonenumber",
-        "placeholder": "Enter phonenumber",
-        "type": "number",
-        "value": "",
-        "field": "textfield",
-        "name": "phonenumber",
-        "_id": "2"
-
-      },
-      {
         "label": "Gender",
         "placeholder": "Enter Gender",
         "type": "radio",
@@ -29,8 +19,45 @@
         "name": "gender",
         "_id": "3",
         "Allocation": [
-          { "id": 1, "label": "male", "type": "male" },
-          { "id": 2, "label": "female", "type": "female" }
+          { "id": 0, "label": "male", "type": "male" },
+          { "id": 1, "label": "female", "type": "female" }
+        ]
+      },
+      {
+        "label": "phonenumber",
+        "placeholder": "Enter phonenumber",
+        "type": "number",
+        "value": "",
+        "field": "textfield",
+        "name": "phonenumber",
+        "_id": "2"
+      },
+      {
+       "label":"city",
+       "name":"city",
+       "placeholder":"Select City",
+       "value":"",
+       "field":"dropdownfield",
+       "option":[
+        {"id":0,"name":"covai"},
+        {"id":1,"name":"chennai"},
+        {"id":2,"name":"bangalore"},
+        {"id":3,"name":"pune"}
+       ],
+       "id":"4"
+      },
+      {
+        "label": "Programming Language",
+        "type": "checkbox",
+        "value": "",
+        "field": "checkboxfield",
+        "name": "programme",
+        "_id": "5",
+        "option": [
+          {"name":"React","ischecked":false },
+          {"name":"Angular","ischecked":false },
+          {"name":"HTML","ischecked":false },
+          {"name":"CSS","ischecked":false }
         ]
       }
     ]
