@@ -22,8 +22,10 @@ export default function FormFile() {
     };
 
     const handleRadio = (e, index, id,) => {
+    //   console.log(e.target.name);
+    
         let arr = formvalue.filter(v => {
-            if (v._id == id) {
+            if (v.name == e.target.name) {
                 v.value = v.option[index].type
             }
             return v
@@ -85,7 +87,7 @@ export default function FormFile() {
                                 key={v.name}
                                 label={v.label}
                                 type={v.type}
-                                option={v.Allocation}
+                                option={v.option}
                                 name={v.name}
                                 value={v.value}
                                 onChange={(e, index) => handleRadio(e, index, v._id,)}
