@@ -9,8 +9,6 @@ export default function FormFile() {
 
     const [formvalue, setFormvalue] = useState(jsondata.fields);
 
-    const [checkedbox,setCheckedbox]=useState([])
-
     const handleonchange = (e) => {
         const { name, value } = e.target;
         console.log(e.target.value);
@@ -49,7 +47,14 @@ export default function FormFile() {
 
         let arr = formvalue.filter(v => {
             if (v._id == id) {
-            
+                let val = []
+                v.option[index].ischecked = e.target.checked
+                v.option.map(check => {
+                    if (check.ischecked == true) {
+                       val.push(check)
+                    }
+                })
+                v.value=val
             }
             return v
         })
@@ -105,6 +110,7 @@ export default function FormFile() {
                                 option={v.option}
                                 type={v.type}
                                 value={v.value}
+                                name={v.name}
                                 onChange={(e, data, index) => handlecheckbox(e, data, index, v._id)}
                             />
                         )
