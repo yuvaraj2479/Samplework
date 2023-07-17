@@ -18,7 +18,7 @@
         "field": "radiofield",
         "name": "gender",
         "_id": "3",
-        "Allocation": [
+        "option": [
           { "id": 0, "label": "male", "type": "male" },
           { "id": 1, "label": "female", "type": "female" }
         ]
